@@ -1,7 +1,6 @@
 #include <iostream>
 
 int main(void) {
-
     // WHILE
     // The loop will run WHILE the statement within the ()-brackets is true.
     int loopMax = 5;
