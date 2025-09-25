@@ -2,38 +2,104 @@
 
 int main(void) {
 
-    // WHILE
-    // The loop will run WHILE the statement within the ()-brackets is true.
-    int loopMax = 5;
-    int loopCounter = 0;
+    /* 
+    Comparison operators         Example:
+    == is equal                  x == y
+    != is not equal              x != y
+    < is less than               x < y
+    > is greater than            x > y
+    <= less than or equal        x <= y
+    >= greater than or equal     x >= y
 
-    while(loopCounter++ < loopMax) {
-        std::cout << "While loop:" << loopCounter << std::endl;
+    Logical operators            Example:            Explanation:
+    && and                       x == y && y < z     both of these must be true
+    || or                        x == y || y < z     one of these must be true
+    ! not                        !(x == y)           reverse the result
+
+    IF / IF ELSE / ELSE
+    'if' is always the first statement.
+    if not true, the program will check the 'else if' statements. You can
+    chain as many 'else if' statements after an 'if' that you need.
+    'else' works as a default, if none of the statements are true, the
+    code in the 'else' statement will execute.
+    */
+    
+    bool thisIsTrue = true;
+    bool thisIsFalse = false;
+
+    // IF THE 'IF' STATEMENT IS TRUE
+    if (thisIsTrue) {
+        std::cout << "If is true" << std::endl;
+    } else if (thisIsFalse) {
+        std::cout << "Else if is true" << std::endl;
+    } else {
+        std::cout << "Neither was true" << std::endl;
     }
 
-    // DO WHILE
-    // The loop will run ATLEAST once before checking of the statement
-    // within the ()-brackets are true.
-    int doWhileCounter = 0;
-    loopCounter = 0;
 
-    do {
-        std::cout << "Do-While loop:" << loopCounter << std::endl;
-    } while (loopCounter++ < doWhileCounter);
-
-    // FOR-LOOP
-    // Loops through a user defined range and gives us an index,
-    // good for navigating through arrays when you need their positions
-    int ages[] = {25, 32, 29, 19, 43};
-
-    for(int i = 0; i < loopMax; i++) {
-        std::cout << "For-loop:" << ages[i] << std::endl;
+    // IF THE 'ELSE IF' STATEMENT IS TRUE
+    if (thisIsFalse) {
+        std::cout << "If is true" << std::endl;
+    } else if (thisIsTrue) {
+        std::cout << "Else if is true" << std::endl;
+    } else {
+        std::cout << "Neither was true" << std::endl;
     }
 
-    // ENHANCED FOR-LOOP
-    // Loops through a container of elements. Unable to have index here.
-    for(int age : ages) {
-        std::cout << age << std::endl;
+
+    // IF NONE IS TRUE
+    if (thisIsFalse) {
+        std::cout << "If is true" << std::endl;
+    } else if (thisIsFalse) {
+        std::cout << "Else if is true" << std::endl;
+    } else {
+        std::cout << "Neither was true" << std::endl;
+    }
+
+
+    // CHAINING 'ELSE IF' STATEMENTS
+    // remember that the program will execute descending
+    if (thisIsFalse) {
+        std::cout << "If is true" << std::endl;
+    } else if (thisIsFalse) {
+        std::cout << "first else if is true" << std::endl;
+    } else if (thisIsFalse) {
+        std::cout << "second else if is true" << std::endl;
+    } else if (thisIsTrue) {
+        std::cout << "third else if is true" << std::endl;
+    } else {
+        std::cout << "Neither was true" << std::endl;
+    }
+
+
+    // USING LOGICAL OPERATORS
+    char scholarschipGradeMinimum = 'A';
+    int minimumAge = 18;
+
+    struct Student {
+        char grade;
+        int age;
+        std::string name;
+    };
+
+    Student student1 = {
+        'C',
+        23,
+        "Hubert"
+    };
+
+    Student student2 = {
+        'A',
+        18,
+        "Bluebert"
+    };
+
+    if (student1.age >= 18 && student1.grade == scholarschipGradeMinimum) {
+        std::cout << student1.name + " has received a scholarschip!" << std::endl;
+    } else if (student2.age >= 18 && student2.grade == scholarschipGradeMinimum) {
+        std::cout << student2.name + " has received a scholarschip!" << std::endl;
+    } else {
+        std::cout << "No one received the scholarship!" << std::endl;
     }
 
     return 0;

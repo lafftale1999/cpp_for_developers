@@ -13,12 +13,12 @@ int main(void) {
     // DO WHILE
     // The loop will run ATLEAST once before checking of the statement
     // within the ()-brackets are true.
-    int doWhileCounter = 0;
+    int doWhileMax = 0;
     loopCounter = 0;
 
     do {
         std::cout << "Do-While loop:" << loopCounter << std::endl;
-    } while (loopCounter++ < doWhileCounter);
+    } while (loopCounter++ < doWhileMax);
 
     // FOR-LOOP
     // Loops through a user defined range and gives us an index,
