@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 int main(void) {
 
@@ -54,6 +55,10 @@ int main(void) {
         std::cout << number << std::endl;
     }
 
+
+    // SORT VECTOR
+    std::sort(numbers.begin(), numbers.end());
+    
     
     // VECTOR BEHAVIOUR
     std::vector<int> anotherVector = numbers;
