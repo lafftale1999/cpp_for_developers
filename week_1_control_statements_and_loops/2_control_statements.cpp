@@ -2,7 +2,7 @@
 
 int main(void) {
 
-    /* 
+    /*
     Comparison operators         Example:
     == is equal                  x == y
     != is not equal              x != y
@@ -15,7 +15,11 @@ int main(void) {
     && and                       x == y && y < z     both of these must be true
     || or                        x == y || y < z     one of these must be true
     ! not                        !(x == y)           reverse the result
+    
+    -------------------------------------------------------------------------------
+    */
 
+    /*
     IF / IF ELSE / ELSE
     'if' is always the first statement.
     if not true, the program will check the 'else if' statements. You can
@@ -100,6 +104,61 @@ int main(void) {
         std::cout << student2.name + " has received a scholarschip!" << std::endl;
     } else {
         std::cout << "No one received the scholarship!" << std::endl;
+    }
+
+    /*
+    -------------------------------------------------------------------------------
+
+    SWITCH
+    A switch statement in C++ lets you choose which block of code to run based on the value of a single variable. 
+    The variable is compared against different constant values, called cases. If a match is found, the code inside
+    that case runs. If no cases match, the default block runs instead.
+    */
+
+    enum DaysOfTheWeek {
+        MONDAY,
+        TUESDAY,
+        WEDNESDAY,
+        THURSDAY,
+        FRIDAY,
+        SATURDAY,
+        SUNDAY
+    };
+
+    DaysOfTheWeek today = WEDNESDAY;
+
+    switch(today) {
+        case MONDAY:
+            std::cout << "WOO IT'S MONDAY!! TIME TO LEARN" << std::endl;
+            break;
+
+        case TUESDAY:
+            std::cout << "Aaw, it's Tuesday... No Carl time :'(" << std::endl;
+            break;
+
+        case WEDNESDAY:
+            std::cout << "YAY WEDNESDAY!! CARL TIME!!" << std::endl;
+            break;
+
+        case THURSDAY:
+            std::cout << "Aaaw, it's Thursday... So long until the next lesson!" << std::endl;
+            break;
+
+        case FRIDAY:
+            std::cout << "Friday, time to prepare for the weekend!" << std::endl;
+            break;
+
+        case SATURDAY:
+            std::cout << "Woho Saturday! I can code all day!" << std::endl;
+            break;
+
+        case SUNDAY:
+            std::cout << "Yay! Tomorrow it's lesson again!" << std::endl;
+            break;
+
+        default:
+            std::cout << "Impressive, you have created a new day of the week!" << std::endl;
+            break;
     }
 
     return 0;

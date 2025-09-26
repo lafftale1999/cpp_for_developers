@@ -25,14 +25,18 @@ int main(void) {
     // good for navigating through arrays when you need their positions
     int ages[] = {25, 32, 29, 19, 43};
 
-    for(int i = 0; i < loopMax; i++) {
-        std::cout << "For-loop:" << ages[i] << std::endl;
+    for(int i = 0; i < sizeof(ages) / sizeof(ages[0]); i++) {
+        std::cout << "For-loop: " << ages[i] <<  std::endl;
     }
 
     // ENHANCED FOR-LOOP
     // Loops through a container of elements. Unable to have index here.
     for(int age : ages) {
-        std::cout << age << std::endl;
+        std::cout << "Enhanced with int: " << age << std::endl;
+    }
+
+    for(auto age : ages) {
+        std::cout << "Enhanced with auto: " << age << std::endl;
     }
 
     return 0;

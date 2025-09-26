@@ -51,7 +51,8 @@ int main(void) {
     // Searching in a string with .find()
     // This will return the index of the first appearance of the substring
     int position = stringExample.find("is now longer");
-
+    // Iterates through the string to find the character. Will return std::string::npos if not found.
+    bool hasLinString = (stringExample.find('L') != std::string::npos);
 
     // Modifying strings
     helloString.replace(0, helloString.length(), "Bonjour");
