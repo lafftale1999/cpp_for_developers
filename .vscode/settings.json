@@ -52,6 +52,9 @@
         "ratio": "cpp",
         "stop_token": "cpp",
         "thread": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "1_functions": "cpp",
+        "algorithm": "cpp",
+        "optional": "cpp"
     }
 }
