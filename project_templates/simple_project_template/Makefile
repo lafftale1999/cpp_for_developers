@@ -1,5 +1,5 @@
 PROG = main.exe 							# Target file for executable
-SRC = main.cpp								# Source code files (when creating more source code files, you will need to add them here).
+SRC = main.cpp HelloWorld.cpp				# Source code files (when creating more source code files, you will need to add them here).
 CFLAGS = -g -std=c++17 -Wall -Werror		# Compile flags - instructions to the compiler (warnings, optimization, version etc)
 LIBS = 										# Specific libraries
 CC=g++										# Compiler to be used
