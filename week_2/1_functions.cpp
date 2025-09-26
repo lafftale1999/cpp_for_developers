@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <functional>
 
 // DECLARING A FUNCTION
 int addTwoNumbers(int x, int y);
@@ -17,6 +18,11 @@ double addTwoNumbers(double x, double y) {
 
 // COPY BY VALUE EXAMPLE
 void addTogether(int x, int y) {
+    x += y;
+}
+
+// COPY BY REFERENCE
+void addTogetherByReference(int& x, int& y) {
     x += y;
 }
 
@@ -50,8 +56,22 @@ void doCalculation(int x, int y, void (*callback)(int)) {
     callback(addTwoNumbers(x,y));
 }
 
+void doDivision(double x, double y, std::function<void(double)> callback ) {
+    callback(x / y);
+}
+
 void writeResult(int value) {
     std::cout << "The result is: " << value << std::endl;
+}
+
+// KEEPING TRACK OF FUNCTION RESULT
+int addStringsTogether(std::string& firstWord, std::string secondWord, int maxLength) {
+    if ((firstWord.length() + secondWord.length()) > maxLength) {
+        return 1;
+    } else {
+        firstWord.append(secondWord);
+        return 0;
+    }
 }
 
 int main(void) {
@@ -70,6 +90,10 @@ int main(void) {
     // TRYING TO ADD NUMBER2 TO NUMBER1
     addTogether(number1, number2); // What will the value be oft number1 after the function?
     std::cout << "Number 1 is now: " << number1 << std::endl;
+
+    // COPY BY REFERENCE
+    addTogetherByReference(number1, number2);
+    std::cout << "Number 1 after addTogetherByReference: " << number1 << std::endl;
 
     // SHOWING THE USE STATIC KEYWORD
     staticAddTwoNumbers(20, 30);
@@ -107,7 +131,21 @@ int main(void) {
         std::cout << "Lambda callback function value : " << value << std::endl; 
     });
 
+    doDivision(number3, number4, [](double x) {
+        std::cout << "Lambda callback division result: " << x << std::endl;
+    });
+
+    // TRACKING FUNCTION RESULT
+    std::string firstName = "Kral";
+    std::string lastName = "Morg";
+
+    if (addStringsTogether(firstName, lastName, 8) == 0) {
+        std::cout << "String concatenated properly" << std::endl;
+        std::cout << "String: " << firstName << std::endl;
+    } else {
+        std::cout << "String concatination failed" << std::endl;
+        std::cout << "String: " << firstName << std::endl;
+    }
+
     return 0;
 }
-
-

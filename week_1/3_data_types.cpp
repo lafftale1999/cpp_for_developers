@@ -52,5 +52,24 @@ int main (void) {
     double regularDouble = 13.37;                       // 8 Bytes	
     long double longDouble = 13.37;                     // 12 Bytes
 
+
+    // ---------------------------- EXPLICIT CASTING ------------------------------------------------------
+    /* 
+    Casting from a larger type (double) to a smaller type (int) can cause data loss.
+    In this case, we lose the fractional part of the number.
+    Note: it’s not really about “losing 4 bytes of data,” but about losing information
+    that cannot fit into the target type.
+    */
+    double aNumber = 3.14159265359;                     
+    int aNumberCasted = (int) aNumber;
+
+    /* 
+    Casting from a smaller type (int) to a larger type (long long int) is safe,
+    because the larger type can fully represent the value of the smaller one.
+    No information is lost in this direction.
+    */
+    int anotherNumber = 323932012;
+    long long int anotherNumberCasted = (long long int) anotherNumber;
+
     return 0;
 }
