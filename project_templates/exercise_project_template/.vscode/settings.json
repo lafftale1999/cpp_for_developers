@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "c:\\Users\\prett\\Desktop\\yh_akademin\\cpp_for_developers\\project_templates\\exercise_project_template",
+            "binaryPath": "c:\\Users\\prett\\Desktop\\yh_akademin\\cpp_for_developers\\project_templates\\exercise_project_template\\main.exe",
+            "binaryArgs": []
+        }
+    ]
+}

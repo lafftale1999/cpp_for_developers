@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 int main(void) {
     // Dont mind the {}! they are used to separate the code to be able to showcase
@@ -22,6 +23,16 @@ int main(void) {
         std::cin >> age;
         
         std::cout << name << " is " << age << " years old." << std::endl;
+    }
+
+    {
+        std::string firstAndLastName;
+
+        std::cout << "What is your full name? ";
+        
+        std::getline(std::cin, firstAndLastName);
+
+        std::cout << "Your full name is: " << firstAndLastName << std::endl;
     }
 
     return 0;
