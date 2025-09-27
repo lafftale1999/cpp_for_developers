@@ -1,3 +1,8 @@
+# Index
+Links to the different exercises for this week.
+- [Functions](#functions)
+- [File I/O operations](#file-io-operations)
+
 # Functions
 
 ## 1. Hello World
@@ -40,4 +45,56 @@ To begin with, limit the recursion to a 100 tries. If it does not succeed, retur
 
 If you want to spice it up - Try creating iterations where the program runs this calculation continuosly 10 times in a row and write out the results after each iteration.
 
+## 8. By later calculations
+Create a program that takes in two numbers and one operator (make sure to use error handling for I/O).
+* Create a function that takes the two numbers, operator and a callback function.
+* The operator should decide which operation to be performed and the callback function shall print out the result.
+
+## 9. Overloading everywhere
+Create an overloaded function that adds two arguments together. It should be able to take the following:
+* String
+* Float
+* Int
+* Char
+
+## 10. What happened?
+Create a program that takes in two numbers from the user and then passes it to a function, together with a result variable. The function should do the following:
+* Randomly perform these operations once `+, -, /, *`
+* Return which operation was performed
+* Change the result variable outside of the functions scope
+
+After the function, you should print out something like `<input1> <operator> <input2> = <result>`
+
+## 11. Get your numbers in order
+Create a program that generates 10 numbers between 1 and 100 and adds it to a list. Then sort it by descending order.
+
+Print out the result after the sort.
+
+## 12. Save it for later
+Create a program that takes in the user full name, phone, address and age. Then create three function variables and assign these with different lambdas. They should do the following:
+* Write out the user first name and age.
+* Write out the users full name and address.
+* Write out the users phone number.
+
+Then call these functions one after another.
+
 # File I/O operations
+## 1. Save your highscore
+Create a program that where the user is prompted with either (Y) generate a random number or (N) end the program. The program should continue until the user enters (N), then it should save the highest number generated during the execution. If there is a higher number already saved, you should discard the number to be written.
+
+When the program starts, it should look into the file and see if there's a saved highscore, if thats the case - write out the highscore in the console.
+
+## 2. File transfer
+Create a program that reads the contents from one file, deletes it and writes it to a new file.
+
+## 3. Sourdough Starter Hotel (yes it's a thing)
+Create a program for the sourdough starter hotel staff. The program should present the following options:
+* Register new starter
+* Show all starters
+* Check out a starter
+* Exit program
+
+The starters have an id, nickname, age and owner. The id should be automatically generated when registering a new starter.
+
+The information about the sourdough starters should be persistent and saved in CSV format.
+

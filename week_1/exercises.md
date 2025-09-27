@@ -1,4 +1,11 @@
-# Exercises Data Types
+# Index
+Links to the different exercises for this week.
+- [Data types](#data-types)
+- [Control statements](#control-statements)
+- [Loops](#loops)
+- [Harder exercises](#harder-exercises)
+
+# Data Types
 These are all the exercises for data types and basic I/O operations. Remember to try and solve the problem first in your own way, your most important skill is problem-solving!
 
 If you want to check your answer, you can have a look at the exercise examples located in this directory.
@@ -61,6 +68,9 @@ You are about to loose in a wordfeud game, luckily your programming skills comes
 
 ## 10. Initials maker
 Everything is in such a hurry, we need you to be named after your initials from now on. Make a program that takes in your full name and then prints out your initials.
+
+## 11. Whats the size?
+Create a program that writes out the size of all the primitive data types we've talked about so far.
 
 # Control Statements
 ## 1. Compare a Number with 10
