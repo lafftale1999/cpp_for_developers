@@ -19,6 +19,23 @@ Student::~Student() {
     studentCounter--;
 }
 
+// SHALLOW COPY
+Student::Student(const Student& other)
+: Student(other.name, other.course, other.age, other.grade) {
+    std::cout << "Copy constructor called" << std::endl;
+}
+
+// DEEP COPY
+Student& Student::operator=(const Student& other) {
+    if (this != &other) {
+        name   = other.name;
+        course = other.course;
+        age    = other.age;
+        grade  = other.grade;
+    }
+    return *this;
+}
+
 // STATIC METHOD
 void Student::printStudentCounter() {
     std::cout << "Current amount of students: " << studentCounter << std::endl;
@@ -35,11 +52,19 @@ void Student::printStudentInformation() {
 
 // COMPARISON OPERATOR OVERLOAD
 bool operator==(const Student& s1, const Student& s2) {
-    return s1.age == s2.age;
+    return (
+    s1.name == s2.name &&
+    s1.course == s2.course &&
+    s1.age == s2.age &&
+    s1.grade == s2.grade
+    );
 }
 
 bool operator<(const Student& s1, const Student& s2) {
-    return s1.age < s2.age;
+    if (s1.age != s2.age) return s1.age < s2.age;
+    if (s1.grade != s2.grade) return s1.grade < s2.grade;
+    if (s1.name != s2.name) return s1.name < s2.name;
+    return s1.course < s2.course;
 }
 
 // GETTERS
@@ -95,7 +120,7 @@ void Student::setAge(const int& age) {
 void Student::setGrade(const char& grade) {
     if (grade < STUDENT_MAX_GRADE || grade > STUDENT_MIN_GRADE) {
         this->grade = 'F';
+    } else {
+        this->grade = grade;
     }
-
-    this->grade = grade;
 }

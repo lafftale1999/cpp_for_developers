@@ -24,6 +24,8 @@ private:
 public:
     Student(std::string name, std::string course, int age, char grade);
     ~Student();
+    Student(const Student& other);
+    Student& operator=(const Student& other);
 
     static void printStudentCounter();
     void printStudentInformation();
