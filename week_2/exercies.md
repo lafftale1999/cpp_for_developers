@@ -2,6 +2,7 @@
 Links to the different exercises for this week.
 - [Functions](#functions)
 - [File I/O operations](#file-io-operations)
+- [OOP Introduction](#oop-introduction)
 
 # Functions
 
@@ -98,3 +99,151 @@ The starters have an id, nickname, age and owner. The id should be automatically
 
 The information about the sourdough starters should be persistent and saved in CSV format.
 
+# OOP introduction
+
+## 1. Person Class
+
+We want to model a Person in C++. Each person should store the following information:
+* BirthDate (mandatory)
+* FirstName
+* LastName
+* StreetAddress
+* PostalCode
+* City
+
+**Step 1:** Create the class
+
+* Make a class called Person. 
+* Add instance variables (private data members) for all the attributes above.
+
+**Step 2:** Constructor
+* A Person must always have a BirthDate (this is mandatory).
+* All other attributes (name, address, etc.) can be set later.
+
+  > Can you design the constructor so the other parameters are optional?
+
+**Step 3:** Member functions
+* Implement at least these functions:
+
+    * GiveName()
+
+        Returns the full name of the person (first + last name).
+
+    * ChangeAddress(...)
+
+        Updates the address (street, postal code, city).
+
+    * MoveInto(const Person& other)
+
+        Makes the person “move into” another person’s address (copies the address from other).
+
+**Step 4:** Main program
+* Create two Person objects.
+
+* Set names and addresses for both.
+
+* Then, make one of them move into the other’s address using your function.
+
+## 2. Hero of Ciplus
+Create a simple role-playing game where the player can first enter their name.
+
+Then choose to:
+```
+Hero of Ciplus
+------------------------
+1. Battle the next enemy
+2. Exit game
+Enter option:
+```
+
+**Battle the next enemy**
+
+A battle should render the following screen:
+```
+<player name>                   <enemy name>
+HP: <player hp>                 HP: <enemy HP>
+
+----------------------------------------------
+Choose action:
+1. Attack
+2. Admit defeat
+Enter option:
+```
+
+Then enemy will automatically attack after the player have attacked. Show information about the attack and then re-render the screen with the updated HP-values.
+
+**Instructions**
+
+**Character**
+
+Create a class that represents a character. The character should have these attributes:
+* Name
+* Health Points (HP for short)
+
+Methods:
+* Attack()
+* Defend() - for when the oppenent attacks
+
+**Graphics**
+
+Create a class that represents the graphics, that holds logic for showing the menu options and rendering the screen.
+
+**BONUS**
+
+Try applying experience points, level up logic, different attacks and/or health bars. Try saving the process in a file.
+
+## 3. Administration System
+Create a program where the first time it's started the user needs to enter a username and password. After the credentials are created and everytime the program runs after - the user needs to enter the credentials to enter the program.
+
+This system will handle the following:
+* Add staff members
+* List staff members
+* Remove staff member
+* Exit
+
+**Staff member**
+
+A staff member should include:
+* Name
+* Age
+* Email
+* Position
+* Monthly Salary
+
+Make sure to validate all data. Email addresses must be validated by a standard format of name@domain.country. Position should be an enum and people below age of 30 can't be assigned SUPERVISOR. People over 30 can't make below 30000.
+
+All data for this program must be persistent.
+
+## 4. Dog Kennel Register
+Write a program that manages a small registry of dogs in a kennel. For each registered dog, the following information should be stored: name, breed, age and weight. A dog also has a tail length which is calculated with this formula:
+
+```
+length = age * weight / 10
+```
+
+The program should be command-driven, supporting four commands:
+
+1. **Register**
+    
+    The user is asked for the dog's name, breed, age and weight. Add the dog to the kennel registry.
+
+2. **List**
+
+    The user is asked for a minimum tail length. The program then prints all dogs whose tail length is greater than or equal to the given minimum.
+
+    When listing the dogs it should be in this format:
+    ```
+    Dog name: <dogName> | Breed: <dogBreed> | Age: <dogAge> | Weight: <dogWeight> | Tail: <dogTailLength> cm
+    ```
+
+3. **Remove**
+
+    The user is asked for the name of the dog to remove. Write out the result of the operations to the console.
+
+4. **Exit**
+
+    Program ends.
+
+**IMPORTANT**
+
+The dogs in the registry should be persistent and saved in a CSV format. This means that when starting the program, you should load all existing dogs into memory and also save them when exiting.
