@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <memory>
 
 #include "Student.h"
 
@@ -18,8 +19,9 @@ int main(void) {
     studentOnHeap->name = "Ami Moreau";
     anotherStudentOnHeap->printStudentInformation();
     delete studentOnHeap;
-
-    std::string name;
+    
+    auto smartStudent = std::shared_ptr<Student>(new Student("Fatma Bakkal", "C++ for developers", 28, 'A'));
+    smartStudent->printStudentInformation();
 
     return 0;
 }
