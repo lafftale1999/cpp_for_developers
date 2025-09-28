@@ -71,5 +71,17 @@ int main (void) {
     int anotherNumber = 323932012;
     long long int anotherNumberCasted = (long long int) anotherNumber;
 
+
+    // -------------------------- CONST -------------------------------------------------------------------
+    const int constInteger = 32;
+
+
+    // -------------------------------- MACROS ------------------------------------------------------------
+    
+    #define PI 3.14159
+    #define SQUARE(x) ((x) * (x))
+
+    double piSquared = SQUARE(PI);
+    
     return 0;
 }

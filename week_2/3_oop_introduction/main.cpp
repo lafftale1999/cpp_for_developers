@@ -19,5 +19,7 @@ int main(void) {
     anotherStudentOnHeap->printStudentInformation();
     delete studentOnHeap;
 
+    std::string name;
+
     return 0;
 }

@@ -58,7 +58,7 @@ int main(void) {
     helloString.replace(0, helloString.length(), "Bonjour");
     helloString.erase(0, helloString.length());
     helloString.insert(0, "Hola");
-    helloString.empty();
+    helloString.clear();
     
     return 0;
 }
