@@ -11,6 +11,7 @@ private:
 
 public:
     Course(std::string courseName, int lengthInMonths, int points);
+    Course();
 
     void setCourseName(std::string courseName);
     void setLengthInMonths(int lengthInMonths);

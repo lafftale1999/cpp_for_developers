@@ -1,6 +1,6 @@
 #include "../include/Course.h"
 
-Course::Course(std::string courseName, int lengthInMonths, int points) 
+Course::Course(std::string courseName, int lengthInMonths, int points)
 : courseName("Not initialized"), lengthInMonths(1), points(1) 
 {
     this->setCourseName(courseName);
