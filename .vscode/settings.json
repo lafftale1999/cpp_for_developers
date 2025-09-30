@@ -63,6 +63,7 @@
         "fstream": "cpp",
         "string": "cpp",
         "random": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "sstream": "cpp"
     }
 }

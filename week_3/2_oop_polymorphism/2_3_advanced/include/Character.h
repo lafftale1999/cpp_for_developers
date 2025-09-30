@@ -21,8 +21,6 @@ protected:
     void updateHealthPoints(int amount);
     void updateStats(int healthPoints, int defencePoints, int attackPoints);
 
-    
-
 public:
     Character();
     Character(std::string name, int healthPoints, int defensePoints, int attackPoints, Attacks attacks);
@@ -30,7 +28,6 @@ public:
     virtual ~Character() = default;
     int attackEnemy(Character& enemy, const Attack& attack);
     
-    // abstract function
     virtual std::string toCSVstring() const;
 
     void resetCharacter();

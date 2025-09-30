@@ -6,7 +6,6 @@
 
 #include "Attack.h"
 
-
 class Attacks {
 private:
     std::vector<Attack> attacks;

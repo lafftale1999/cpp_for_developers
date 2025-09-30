@@ -6,7 +6,6 @@
 #define ATTACK_NAME_MIN_LEN 2
 #define ATTACK_NAME_MAX_LEN 50
 
-
 class Attack {
 private:
     std::string name;
