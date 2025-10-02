@@ -12,6 +12,9 @@ private:
 public:
     Animal(std::string n, std::string s, int a);
 
+    void makeSound();
+    void run();
+
     void setName(std::string n);
     void setSound(std::string s);
     void setAge(int a);
@@ -19,8 +22,6 @@ public:
     const std::string& getName();
     const std::string& getSound();
     int getAge();
-
-    void makeSound();
 };
 
 #endif

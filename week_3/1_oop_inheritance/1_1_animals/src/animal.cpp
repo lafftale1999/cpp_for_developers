@@ -14,6 +14,10 @@ void Animal::makeSound() {
     std::cout << name << " said " << sound << "!\n";
 }
 
+void Animal::run() {
+    std::cout << name << " is running very fast!\n";
+}
+
 // ------------------ GETTERS AND SETTERS -----------------------------
 void Animal::setName(std::string n) {
     if (n.empty()) {
