@@ -169,10 +169,6 @@ bool GameMemory::loadFromMemory(Player& player, std::vector<NPC>& npcs, Attacks&
     if (loadAttacks(tempAttacks)) {
         attacks = Attacks(tempAttacks);
     } else return false;
-    
-    for ( const auto& attack : attacks.getAllAttacks()) {
-        std::cout << attack.getAttackId() << ". " << attack.getName() << " " << attack.getDamage() << " damage." << std::endl;
-    }
     loadPlayer(player, attacks);
     loadNpcs(npcs, attacks);
     
