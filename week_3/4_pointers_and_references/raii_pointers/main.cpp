@@ -8,8 +8,7 @@ int main(void) {
     std::unique_ptr<int> pAge = std::make_unique<int>(29);
 
     // Shared owner
-    // Destroyed when last owner is
-    // out of scope
+    // Destroyed when last owner is out of scope
     std::shared_ptr<int> aGrade = std::make_shared<int>(2);
     std::shared_ptr<int> bGrade = aGrade;
 
