@@ -1,4 +1,16 @@
-# Exercises for Inheritance, Abstract Classes and Polymorhpism
+# Exercises for week 3
+## Index
+Links to the different exercises for this week.
+- [Inheritance, Abstract Classes and Polymorhpism](#inheritance-abstract-classes-and-polymorhpism)
+    - [Inheritance](#inheritance)
+    - [Abstract Classes](#abstract-classes)
+    - [Polymorphism](#polymorphism)
+- [Pointers, References and RAII](#pointers-references-and-raii)
+    - [Pointers](#pointers)
+    - [References](#references)
+    - [RAII (smart pointers)](#raii---smart-pointers)
+
+# Inheritance, Abstract Classes and Polymorhpism
 At this point, I should not have to remind you, that all classes should be encapsulated and validate data. It does make the exercises more complex, but also gives great practice.
 
 # Inheritance
@@ -92,6 +104,9 @@ Create a program that prompts the user to:
 1. When done, ask which format to save in
 1. Save in that format to the entered file name
 
+# Pointers, references and RAII
+All exercises for practicing memory management using pointers, references and RAII.
+
 # Pointers
 
 ## 1. Pointer fundamentals
@@ -130,6 +145,8 @@ Create 3 functions that prints out the:
 1. Largest transaction
 1. Average of all transactions
 
+Call all the functions.
+
 If you want to learn more about pointers:
 * Try implementing the function `int* findAmount(amount)` that returns a pointer to the first matching transaction or `nullptr`. Write out either the amount or that it couldn't be found.
 
@@ -139,15 +156,16 @@ Remember to `delete[]` your allocated array[].
 Create a program that uses polymorphic behaviour to suggest shipping methods.
 
 1. Create a base class `Transport`
-    * A pure virtual function that takes in a package weight in `kg` and and the distance to be shipped in `km` and then returns the calculated cost as a `double`.
+    * A pure virtual function calculateCost(double km, double kg) that returns the calculated cost as a `double`.
     * A virtual ~destructor
     * Private fields:
         * transportMethodName
         * startCost
         * costPerKM
         * costPerKG
+    * Getters and setters where it makes sense
 
-2. Create three simple classes:
+2. Create four simple classes that overrides the calculateCost() method:
     * `Ground` (cheap per km, cheap per kg, small startUpCost)
     * `Air` (expensive per km, expensive per kg, large startUpCost)
     * `Train` (cheap per km, cheap per kg, medium startUpCost)
@@ -158,7 +176,7 @@ Create a program that uses polymorphic behaviour to suggest shipping methods.
     * Instantiate all objects on the heap with pointers *
     * Store them as `Transport*` pointers in an array[]
     * Loop through the array of `Transport*` and display the result.
-        > Tip: `[i] == *(ptr + i)`
+        > Tip: `ptr[i] == *(ptr + i)`
 
 ### Stretch
 Ask the user if they want to choose the cheapest alternative and implement a way to automatically choose the cheapest alternative and print it out.
@@ -190,4 +208,58 @@ The program should:
 1. Enter the package weight, value and type
 1. When they have entered the information for all packages - print out the information
 
-## 4. 
+# RAII - Smart pointers
+
+## 1. Simple use of Smart pointers
+Create a program with the class Cylinder with the attributes diameter and depth, and the method printArea(). Now use this class to:
+* Allocate it on the heap using unique_ptr
+* Allocate it on the heap using shared_ptr
+* Create two weak pointers and point:
+    * One to the unique_ptr
+    * One to the shared_ptr
+
+Now call the printArea() function through each pointer.
+
+## 2. Move ownership
+Using the function std::move() we can change ownership of unique_ptrs. Use the program from the exercise before this and:
+* Create another unique_ptr and move the ownership from the first one, to this one.
+* Call the function printArea() from the new one.
+
+What will happen if you call the printArea() function from the first one now?
+
+## 3. Smart pointer Array (RAII edition of [Transaction Ledger](#5-transaction-ledger))
+Recreate the program from "Transaction Ledger" using smart pointers. Allocate an user-defined size of `int array[]` on the heap using an unique_ptr<int[]>.
+
+```cpp
+auto transactions = std::make_unique<int[]>(amountOfTransactions);
+```
+
+Get the user values and store them in the array.
+
+Create the same 3 functions that prints out the:
+1. Total sum of all transactions
+1. Largest transaction
+1. Average of all transactions
+
+Call all the functions.
+
+**Stretch**
+
+Create a function called `std::optional<const int*> findAmount(int* data, int size, int amount)`  and use `transactions.get()` to pass as argument data. This should either return a pointer or a null value. Check the result and print out either the value, or a "not found" message!
+
+## 4. Polymorphism, safely (RAII edition of [Shipping Cost Calculator](#6-shipping-cost-calculator))
+Re-implement your “Shipping Cost Calculator” using smart pointers only (no raw new/delete).
+
+Requirements:
+* Keep the same Transport hierarchy and `calculateCost(double km, double kg)`.
+* Store shipping options in `std::vector<std::unique_ptr<Transport>>`.
+* Construct with `std::make_unique<Derived>()` and iterate with enhanced for loop, calling calculateCost.
+
+Add a function `const Transport& cheapest(const std::vector<std::unique_ptr<Transport>>& options, double km, double kg)` that returns the cheapest option by reference (no copying, no raw pointers).
+
+Print all options and the cheapest one.
+
+**Rules**
+* No raw owning pointers.
+* Transport must have a virtual ~Transport().
+* Prefer passing containers by const reference.
