@@ -41,9 +41,9 @@ obj/src/%.o: src/%.cpp | obj/src
 
 # --- ensure folders exist ---
 obj:
-	mkdir -p obj
+	mkdir obj
 obj/src:
-	mkdir -p obj/src
+	mkdir obj\src
 
 # --- clean ---
 clean:

@@ -17,8 +17,8 @@ This is an ode to the original release of the K&R C book from the 70s. Create a 
 Create a program that asks the user which year they were born and then tells them how old they are today.
 
 ## 3. Present yourself
-The Intergalactic Council requires you to register your identity before entering the system.
-Write a program that asks for your name, age, address, phone number, and email, then prints them back in a tidy format—your digital passport!
+The Intergalactic Council requires you to register your identity before entering the system. Create a struct Person with name, age, address, phone number and email.
+Write a program that asks for your name, age, address, phone number and email, then prints them back in a tidy format—your digital passport!
 
 ## 4. Calculator: Addition
 You’ve found two treasure chests with gold coins inside.
@@ -126,12 +126,12 @@ Decide what they can buy:
 # Loops
 ## 1. Print Numbers 0 to 10
 Write a program that prints the numbers 0 to 10 on the screen.
-Solve this using a for-loop
+Solve this using a for-loop and then a while-loop
 
 ## 2. Numbers Between Two Values
 Ask the user to enter two numbers.
 Print all the numbers between those two values on the screen.
-Solve this using a for-loop.
+Solve this using a for-loop and then a while-loop
 
 ## 3. Repeat Until User Quits
 Ask the user to enter two numbers.
