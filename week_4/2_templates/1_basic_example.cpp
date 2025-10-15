@@ -6,6 +6,6 @@ T addTwoNumbers(T x, T y) {
 }
 
 int main(void) {
-    std::cout << addTwoNumbers(5, 10) << std::endl;
-    std::cout << addTwoNumbers(5.3, 10.2) << std::endl;
+    std::cout << addTwoNumbers(5, 10) << '\n';
+    std::cout << addTwoNumbers(5.3, 10.2) << '\n';
 }
