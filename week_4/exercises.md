@@ -1,7 +1,18 @@
 # Exercises for week 4
 This contains all exercises for week 4!
 
-
+## Index
+1. [SimpleIntegerArray](#1-simpleintegerarray) 
+2. [DynamicArray](#2-dynamicarray)
+3. [Array Algorithms](#3-array-algorithms)
+4. [Binary Search](#4-binary-search)
+5. [Try the DynamicArray](#5-try-the-dynamicarray)
+6. [SingleLinkedList](#6-single-linked-list)
+7. [DoubleLinkedList](#7-double-linked-list)
+8. [BinarySearchTree](#8-binary-search-tree)
+9. [Compare Structures](#9-compare-data-structures)
+10. [Cache](#10-cache)
+11. [Compare Cache](#11-new-measurements)
 
 ## Data Structures & Algorithms
 
