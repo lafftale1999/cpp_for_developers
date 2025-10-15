@@ -8,7 +8,7 @@ This contains all exercises for week 4!
 4. [Binary Search](#4-binary-search)
 5. [Try the DynamicArray](#5-try-the-dynamicarray)
 6. [SingleLinkedList](#6-single-linked-list)
-7. [DoubleLinkedList](#7-double-linked-list)
+7. [DoublyLinkedList](#7-doubly-linked-list)
 8. [BinarySearchTree](#8-binary-search-tree)
 9. [Compare Structures](#9-compare-data-structures)
 10. [Cache](#10-cache)
@@ -140,11 +140,11 @@ public:
 
 ---
 
-### 7. Double Linked List
-Create a templated double linked list with both a head and tail. Adjust the functions to make better use of knowing about the tail.
+### 7. Doubly Linked List
+Create a templated doubly linked list with both a head and tail. Adjust the functions to make better use of knowing about the tail.
 
 ```cpp
-class DoubleLinkedList {
+class DoublyLinkedList {
 private:
     // Struct describing the linkedlist structure and T data
     // pointer to head
@@ -152,8 +152,8 @@ private:
     // size
 
 public:
-    DoubleLinkedList();
-    DoubleLinkedList(std::initializer_list<T> e);
+    DoublyLinkedList();
+    DoublyLinkedList(std::initializer_list<T> e);
     void push_front(const T& value);
     void push_back(const T& value);
     void insert(const T& value, int index);
