@@ -1,9 +1,9 @@
 # Extra Exercises!
-### 1. Cache
-Creata a templated cache using a circular linked list. The class can look something like this:
+### 1. LRUCache
+Creata a templated LRUCache using a circular linked list. The class can look something like this:
 
 ```cpp
-class Cache {
+class LRUCache {
 private:
     struct Element {
         T e;
@@ -16,14 +16,15 @@ private:
     // size and capacity
 
 public:
-    Cache();
-    Cache(size_t capacity);
-    void save(const T& element, size_t index); // <- Create Element struct and adds to front
-    size_t load(const T& element); // <- returns the index saved in Element struct if found
+    LRUCache();
+    LRUCache(size_t capacity);
+    void put(const T& element, size_t index); // <- Create Element struct and adds to front
+    size_t get(const T& element); // <- returns the index saved in Element struct if found
+    void clear(); // <- clears the entire LRUCache
 };
 ```
 
-Create a new class based on DynamicArray called CachedDynamicArray and add the cache as a member. Implement this behaviour:
+Create a new class based on DynamicArray *(from [Exercise Week 4 - DynamicArray](/week_4/exercises.md#2-dynamicarray))* called CachedDynamicArray and add the cache as a member. Implement this behaviour:
 * Everytime you search in your array - look through the cache first to get the index faster.
 * When an element is found, it should be placed at the front of your cache.
     * If an element is found inside the cache, this should also be placed at the front. Remember to rearrange pointers.
