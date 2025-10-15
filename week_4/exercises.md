@@ -11,8 +11,6 @@ This contains all exercises for week 4!
 7. [DoublyLinkedList](#7-doubly-linked-list)
 8. [BinarySearchTree](#8-binary-search-tree)
 9. [Compare Structures](#9-compare-data-structures)
-10. [Cache](#10-cache)
-11. [Compare Cache](#11-new-measurements)
 
 ## Data Structures & Algorithms
 
@@ -204,43 +202,5 @@ Now measure the performance of the following operations using the above code:
 1. Generating and inserting 1000 random integers between 1 and 50.
 2. Inserting an integer in the middle (only linked list and array)
 3. Finding a specific value in the array
-
----
-
-### 10. Cache
-Creata a templated cache using a circular linked list. The class can look something like this:
-
-```cpp
-class Cache {
-private:
-    struct Element {
-        T e;
-        size_t index;
-    }
-
-    // struct defining the nodes (use element as data)
-    // pointer to head
-    // pointer to tail
-    // size and capacity
-
-public:
-    Cache();
-    Cache(size_t capacity);
-    void save(const T& element, size_t index); // <- Create Element struct and adds to front
-    size_t load(const T& element); // <- returns the index saved in Element struct if found
-};
-```
-
-Create a new class based on DynamicArray called CachedDynamicArray and add the cache as a member. Implement this behaviour:
-* Everytime you search in your array - look through the cache first to get the index faster.
-* When an element is found, it should be placed at the front of your cache.
-    * If an element is found inside the cache, this should also be placed at the front. Remember to rearrange pointers.
-* The cache capacity should be set at 10.
-* When the cache is full, evict the oldest element.
-
----
-
-### 11. New measurements
-Do [Exercise 6 - Compare Data Structures](#6-compare-data-structures) again and measure the difference in performance of using the cache in CachedDynamicArray vs DynamicArray.
 
 ---
