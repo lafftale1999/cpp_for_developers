@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <vector>
 
 // Video
 // Sound
@@ -23,7 +23,7 @@ public:
 class IP_Camera : public VideoInterface, public SoundInterface {
 public:
     void streamVideo() override {
-        std::cout << "Video is showing" << std::endl;
+        std::cout << " IP_Camera Video is showing" << std::endl;
     }
 
     void streamSound() override {
@@ -32,14 +32,38 @@ public:
 };
 
 class HD_Camera : public VideoInterface {
+public:
+    void streamVideo() override {
+        std::cout << "HD_Camera Video is showing" << std::endl;
+    }
+};
 
+class AdvancedCamera : public VideoInterface, public SoundInterface, public TemperatureInterface {
+public:
+    void streamVideo() override {
+        std::cout << "AdvancedCamera Video is showing" << std::endl;
+    }
+
+    void streamSound() override {
+        std::cout << "Sound is on" << std::endl;
+    }
+
+    double getTemperature() override {
+        return 28.2f;
+    }
 };
 
 int main(void) {
 
-    // list VideoInterface*
-    // getVideo("32F");
-    // 
+    std::vector<VideoInterface*> video;
+
+    video.push_back(new IP_Camera());
+    video.push_back(new HD_Camera());
+    video.push_back(new AdvancedCamera());
+
+    for (auto stream : video) {
+        stream->streamVideo();
+    }
 
     return 0;
 }

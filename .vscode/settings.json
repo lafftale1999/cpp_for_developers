@@ -63,7 +63,8 @@
         "xmemory": "cpp",
         "xstring": "cpp",
         "xtr1common": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "bitset": "cpp"
     },
     "cmake.sourceDirectory": "C:/Users/prett/Desktop/YH_akademin/project_templates/cmake_project_template"
 }

@@ -14,5 +14,12 @@ int main(void) {
 
     // No ownership
     std::weak_ptr<int> cGrade = aGrade;
+
+    // Access weak_ptr
+    if (auto sp = cGrade.lock()) {  // Try to get shared_ptr
+        std::cout << "Grade: " << *sp << std::endl;
+    } else {
+        std::cout << "Grade object no longer exists." << std::endl;
+    }
 }
 
