@@ -178,7 +178,7 @@ private:
 public:
     BST() = default;
     BST(std::initializer_list<T> e);
-    void insert(const T&); // <- duplicates goes to the left subtree
+    void insert(const T&); // <- ignore duplicates
     bool find(const T&);
     void print() const; // <- prints all elements (use inorder algorithm)
 };

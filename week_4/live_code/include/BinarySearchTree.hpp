@@ -1,0 +1,6 @@
+#ifndef BINARY_SEARCH_TREE_HPP_
+#define BINARY_SEARCH_TREE_HPP_
+
+
+
+#endif
