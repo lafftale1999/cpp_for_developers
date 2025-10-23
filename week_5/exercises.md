@@ -37,4 +37,27 @@ Building on what we've learned so far, we are now gonna create drivers. Create t
 Now use these drivers in [Exercise 3](#3-control-the-led-with-the-button).
 
 ## 5. Toggling the LED
-Use the drivers from earlier exercises to build a program that 
+Use the drivers from earlier exercises to build a program where you toggle a LED on and off using the button.
+
+Remember to implement a debounce logic where you let the signal stabilize for 100 - 200ms. This means that when the button is pressed, it will not register another high signal for the debounce time.
+
+## 6. Traffic Lights
+Use the drivers from the program before and this sketch: https://wokwi.com/projects/445631470875471873
+
+Create a program that:
+* Green LED is lighted as standard.
+* When the button is pressed:
+    1. Wait 5 seconds
+    2. Turn off the green LED and turn on the yellow LED
+    3. Wait 2 seconds
+    5. Turn off the yellow LED and turn on the red LED
+    6. Wait 10 seconds
+    7. Turn off the red LED and turn on the yellow LED
+    8. Wait 2 seconds
+    9. Turn off the yellow LED and turn on the green LED.
+
+Remember to debounce the button and that a button press should NOT interrupt the sequence started by the button press!
+
+## 7. STRETCH GOALS
+1. Implement an Interrupt Service Routine for the button instead of polling it.
+2. Add an HC-SR04 Ultrasonic Sensor to the traffic lights which triggers the sequence instead of the button.
