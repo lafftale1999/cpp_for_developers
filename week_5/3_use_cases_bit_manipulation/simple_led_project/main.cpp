@@ -12,7 +12,6 @@
 int main(void) {
 
     // SETUP
-
     DDRB |= (1 << LED_PIN);
     PORTB &= ~(1 << LED_PIN);
 
