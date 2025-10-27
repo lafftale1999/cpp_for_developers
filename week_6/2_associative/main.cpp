@@ -3,60 +3,72 @@
 // Associative containers libraries
 #include <map>
 #include <set>
+#include <unordered_set>
 
 // Algorithm library
 #include <algorithm>
 
+#include <cmath>
 #include <chrono>
 #include <iterator>
 #include <memory>
 
-template <typename T>
-void findMovie(const T& container, std::string target, std::string containerType) {
-    
-    std::cout << "\n---------- FIND MOVIE IN CONTAINER TYPE: " << containerType << " ----------\n";
-
-    auto start = std::chrono::high_resolution_clock::now();
-    bool found = std::any_of(container.begin(), container.end(), [&target](const auto& element) {
-        return element.getTitle() == target;
-    });
-    auto end = std::chrono::high_resolution_clock::now();
-    auto ms = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
-    
-    std::cout << (found ? "FOUND! " : "NOT FOUND! ") << "Operation took: " << ms << "μs | Using containertype: " << containerType << std::endl;
-    std::cout << "---------- END ----------\n";
-}
-
-template <typename T>
-void sortList(T& container, std::string containerType) {
-    std::cout << "\n---------- SORT MOVIES BY TITLE IN CONTAINER TYPE: " << containerType << " ----------\n";
-
-    auto start = std::chrono::high_resolution_clock::now();
-    std::sort(container.begin(), container.end(), [] (const auto& a, const auto& b) {
-        return a.getTitle() < b.getTitle();
-    });
-    auto end = std::chrono::high_resolution_clock::now();
-    auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
-    
-    std::cout << "SORTED! " << "Operation took: " << ms << "ms | Using containertype: " << containerType << std::endl;
-    std::cout << "---------- END ----------\n";
-}
-
 int main(void) {
+    srand(time(NULL));
 
     MovieList movies = MovieList();
     auto& r_movies = movies.getMovies();
 
-    std::map<int, Movie> movieMap;
     
+    // -------------- MAP ------------------
+    std::map<int, Movie> movieMap;
     // this is the same as for(auto move : r_movies)
     for (auto it = r_movies.begin(); it != r_movies.end(); ++it) {
         movieMap.insert({it->getId(), *it});
     }
 
+    int count = 0;
+    const int max_count = 10;
+    for (auto it = movieMap.begin(); it != movieMap.end() && count < max_count; ++it, ++count) {
+        std::cout << it->first << " | " << it->second.getTitle() << std::endl;
+    }
+
+
+    // ------------- SET ------------------------
     std::set<Movie> movieSet;
     for (auto movie : r_movies) {
         movieSet.insert(movie);
+    }
+
+    count = 0;
+    for (auto it = movieSet.begin(); it != movieSet.end() && count < max_count; ++it, ++count) {
+        std::cout << it->getId() << " | " << it->getTitle() << std::endl;
+    }
+
+
+    // ----------- UNORDERED MAP -----------
+    std::unordered_map<int,int> unorderedMap;
+    for (int i = 0; i < 100; i++) {
+        int rnd = rand() % 10000;
+        unorderedMap.insert({i, rnd});
+    }
+
+    count = 0;
+    for (auto it = unorderedMap.begin(); it != unorderedMap.end() && count < max_count; ++it, ++count) {
+        std::cout << it->first << " | " << it->second << std::endl;
+    }
+
+
+    // ----------- UNORDERED SET ------------
+    std::unordered_set<int> unorderedSet;
+    for (int i = 0; i < 100; i++) {
+        int rnd = rand() % 10000;
+        unorderedSet.insert(rnd);
+    }
+
+    count = 0;
+    for (auto it = unorderedSet.begin(); it != unorderedSet.end() && count < max_count; ++it, ++count) {
+        std::cout << *it << std::endl;
     }
 
     return 0;

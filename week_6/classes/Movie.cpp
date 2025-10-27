@@ -90,3 +90,7 @@ void Movie::validateGenres(const std::vector<GENRES>& genres) {
 bool operator<(const Movie& a, const Movie& b) {
     return a.getTitle() < b.getTitle();
 }
+
+bool operator>(const Movie& a, const Movie& b) {
+    return a.getTitle() > b.getTitle();
+}

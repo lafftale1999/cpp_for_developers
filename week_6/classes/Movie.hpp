@@ -80,7 +80,8 @@ public:
     const std::vector<GENRES>& getGenres() const;
 
     friend bool operator<(const Movie& a, const Movie& b);
-
+    friend bool operator>(const Movie& a, const Movie& b);
+    
     std::string toString() const;
 };
 
