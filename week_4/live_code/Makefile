@@ -1,7 +1,7 @@
 # Setting up our compiler flags and destinations
 PROG   = main.exe
 CC     = g++
-CFLAGS = -g -std=c++17 -Wall -Werror
+CFLAGS = -g -std=c++17
 LIBS   =
 
 # Setting up the src and object paths
@@ -41,9 +41,9 @@ obj/src/%.o: src/%.cpp | obj/src
 
 # --- ensure folders exist ---
 obj:
-	mkdir -p obj
+	mkdir obj
 obj/src:
-	mkdir -p obj/src
+	mkdir obj\src
 
 # --- clean ---
 clean:
