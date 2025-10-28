@@ -72,7 +72,12 @@
         "array": "cpp",
         "chrono": "cpp",
         "forward_list": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "queue": "cpp",
+        "ranges": "cpp",
+        "span": "cpp",
+        "stack": "cpp",
+        "unordered_set": "cpp"
     },
     "cmake.sourceDirectory": "C:/Users/prett/Desktop/YH_akademin/project_templates/cmake_project_template"
 }

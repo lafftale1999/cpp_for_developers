@@ -18,7 +18,7 @@ enum MoviesCSVHeaders {
     HEADERS_COUNT
 };
 
-MovieList::MovieList() {
+MovieList::MovieList(size_t moviesWanted) {
     std::ifstream file(MOVIE_FILE_PATH);
 
     if (!file.is_open()) {
@@ -32,8 +32,7 @@ MovieList::MovieList() {
     std::getline(file, raw_headers);
 
     int exceptions_count = 0;
-
-    while(std::getline(file, line)) {
+    while(std::getline(file, line) && movies.size() < moviesWanted) {
         try {
             std::istringstream ss(line);
             std::string token;
@@ -53,7 +52,6 @@ MovieList::MovieList() {
             std::vector<GENRES> g = setGenres(fields[H_GENRES]);
 
             movies.emplace_back(Movie(id, std::move(fields[H_TITLE]), std::move(fields[H_YEAR]), std::move(g)));
-
         } catch (const std::exception& e) {
             std::cout << "Exception thrown while reading file on line: " << line << " | Error thrown: " << e.what() << std::endl;
             exceptions_count++;

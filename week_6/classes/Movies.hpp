@@ -11,7 +11,7 @@ private:
 
     static std::vector<GENRES> setGenres(std::string genresIn);
 public:
-    MovieList();
+    MovieList(size_t moviesWanted);
 
     void addMovie(const Movie& movie);
     std::vector<Movie>& getMovies();

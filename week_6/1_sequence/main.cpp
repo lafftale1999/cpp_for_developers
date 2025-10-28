@@ -47,7 +47,7 @@ void sortList(T& container, std::string containerType) {
 
 int main(void) {
 
-    MovieList movies = MovieList();
+    MovieList movies = MovieList(200);
 
     auto& movieReference = movies.getMovies();
 

@@ -15,7 +15,7 @@
 int main(void) {
     srand(time(NULL));
 
-    MovieList movies = MovieList();
+    MovieList movies = MovieList(200);
     auto& r_movies = movies.getMovies();
 
     // ------------- QUEUE ---------------
