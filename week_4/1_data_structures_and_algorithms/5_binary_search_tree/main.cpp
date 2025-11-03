@@ -117,5 +117,9 @@ int main(void) {
 
     if (bst.find(21)) std::cout << "21 was found in the bst!\n";
     std::cout << bst.getSize() << std::endl;
+
+    
+
+    
     return 0;
 }
