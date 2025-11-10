@@ -77,7 +77,8 @@
         "ranges": "cpp",
         "span": "cpp",
         "stack": "cpp",
-        "unordered_set": "cpp"
+        "unordered_set": "cpp",
+        "coroutine": "cpp"
     },
     "cmake.sourceDirectory": "C:/Users/prett/Desktop/YH_akademin/project_templates/cmake_project_template"
 }
