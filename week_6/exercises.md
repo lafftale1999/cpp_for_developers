@@ -321,3 +321,151 @@ What is causing this behaviour?
 ---
 
 ## 3. Coroutines
+
+### 1. CSV Splitter
+Finish the coroutine below to create a generic csv parser.
+
+```cpp
+#include <coroutine>
+#include <optional>
+#include <string>
+#include <vector>
+#include <sstream>
+#include <fstream>
+
+template <class T>
+class generator {
+private:
+    handle h;
+
+public:
+    struct promise_type {
+        std::optional<T> current;
+
+        // TODO: return the generator holding the coroutine handle
+        // TODO: start suspended so caller controls iteration
+        // TODO: final suspend to let caller destroy the frame safely
+        // TODO: store yielded value, then suspend
+
+        void return_void() noexcept {}
+        void unhandled_exception() { std::terminate(); }
+    };
+
+    using handle = std::coroutine_handle<promise_type>;
+
+    generator() noexcept
+    : h(nullptr) {}
+
+    explicit generator(handle hh)
+    : h(hh) {}
+
+    generator(generator&& other) noexcept
+    : h(other.h) {
+        other.h = nullptr;
+    }
+
+    generator& operator=(generator&& other) noexcept {
+        if (this != &other) {
+            if (h) h.destroy(); 
+            h = other.h; 
+            other.h = nullptr; 
+        }
+
+        return *this;
+    }
+
+    generator(const generator&) = delete;
+    generator& operator=(const generator&) = delete;
+    ~generator() {
+        if (h) h.destroy();
+    }
+
+    // Minimal iterator to do: for (auto v : gen) { ... }
+    struct iterator {
+        handle h{};
+        bool done = true;
+
+        void resume() {
+            if (h && !h.done()) 
+                h.resume(); 
+            done = !h || h.done(); 
+        }
+
+        iterator& operator++() {
+            resume(); 
+            return *this;
+        }
+
+        const T& operator*() const {return *h.promise().current; }
+        bool operator==(std::default_sentinel_t) const { return done; }
+    };
+
+    iterator begin() {
+        iterator it{h,false};
+        it.resume();
+        return it;
+    }
+
+    std::default_sentinel_t end() { return {}; }
+};
+
+std::vector<std::string> split_csv(const std::string& line) {
+    std::string<std::string> out;
+    std::stringstream ss(line);
+    std::string cell;
+
+    while(std::getline(ss, cell, ','));
+    return out;
+}
+
+generator<std::vector<std::string>> read_rows(const std::string& path) {
+    std::ifstream file(path);
+    if!(file) co_return;
+
+    std::string line;
+    std::getline(file, line);
+
+    while(std::getline(file, line)) {
+        if (!line.empty() && line.back() == '\r') line.pop_back();
+        co_yield split_csv(line);
+    }
+}
+```
+
+Then use the read_rows function to parse a CSV file:
+
+```cpp
+int main(void) {
+    for (auto row : read_rows("file.csv")) {
+        std::cout << row << std::endl;
+    }
+}
+```
+
+**Note:** Notice the iterator structure and how it enables us to iterate with the coroutine.
+
+---
+
+### 2. Chatting with myself
+
+Create a program using a coroutine that enables to users to chat. When inside the coroutine - it should wait for a user input and then print it in main:
+
+```
+Coroutine: String from coroutine!
+```
+
+And then in main it should wait for a user input and then print the result in the coroutine:
+
+```
+Main: String from main!
+```
+
+This requires to define both:
+* answer();
+* listen();
+
+And within the `promise object`:
+* yield_value
+* await transform
+
+Use [7_coroutines/7_2_message](7_coroutines/7_2_message/main.cpp) as an example!
