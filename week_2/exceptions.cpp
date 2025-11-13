@@ -23,7 +23,10 @@ int main(void) {
     // We are also able to create loops with try catch that can handle userInput in a better way
     // by prompting them with entering a valid answer:
     int userInput = 0;
-    std::string prompt = "Enter a number between 0 and " + std::to_string(values.size()) + " | or -1 to quit!\n";
+    std::string prompt = 
+        "Enter a number between 0 and " + 
+        std::to_string(values.size()) + 
+        " | or -1 to quit!\n";
     std::cout << prompt;
 
     while (userInput != -1) {
@@ -54,3 +57,4 @@ int main(void) {
 
     return 0;
 }
+
