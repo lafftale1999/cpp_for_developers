@@ -29,6 +29,17 @@ Before you begin, take a moment to decide how many hours you can dedicate each w
 
 # Study Guide
 
+## Index
+- [Project Templates](#project-templates)
+- [Week 1: Introduction & Syntax and Data Types](#week-1)
+- [Week 2: Functions and File I/O & OOP Introduction](#week-2)
+- [Week 3: OOP Inheritance and Polymorphism & Memory, Pointers and References](#week-3)
+- [Week 4: Data Structures, Algorithms and Templates](#week-4)
+- [Week 5: Embedded C++](#week-5)
+- [Week 6: STL Introduction & Continuation](#week-6)
+- [Week 7: Threads](#week-7)
+- [Week 8: Final week - Finish Assignments](#week-8)
+
 ## Project Templates
 The following templates can be used to create C++ projects. You will have to use Makefile Tools in VSCode or CMake depending on what you are used to, and what you want to learn. In the course, we are mainly focusing on Makefile.
 
