@@ -99,7 +99,7 @@ Link to week three: [Week 3 curriculum](/week_3/week_3.md)
 Build a C++ console-based access control system for a government building with full user/admin functionality, data persistence, validation, and logging.
 
 * Deadline: End of Week 8
-* Assignment: [Assignmend #1 - Secure Card System](/assignments/Assignment%20#1%20-%20Secure%20Card%20System.pdf) 
+* Assignment: [Assignment #1 - Secure Card System](/assignments/Assignment%20#1%20-%20Secure%20Card%20System.pdf) 
 
 ### Lesson 5: OOP Inheritance and Polymorphism
 * Deep dive into advanced object-oriented programming (OOP) concepts for building flexible, reusable systems
@@ -168,7 +168,7 @@ Link to week five: [Week 5 curriculum](/week_5/week_5.md)
 Create the application logic for a company Ad Screen in C++ and finish the LCD driver initialization for an hd44780-based display (using the provided template + Wokwi sketch).
 
 * Deadline: End of Week 8
-* Assignment: [Assignmend #2 - Embedded Ad Screen](/assignments/Assignment%20#2%20-%20Embedded.pdf)
+* Assignment: [Assignment #2 - Embedded Ad Screen](/assignments/Assignment%20#2%20-%20Embedded.pdf)
 
 ### Lesson 9 & 10: Embedded Programming with C++
 * What embedded systems are and how MCUs differ from MPUs
@@ -209,13 +209,13 @@ This final week is dedicated to completing and polishing the two major assignmen
 Build a C++ console-based access control system for a government building with full user/admin functionality, data persistence, validation, and logging.
 
 * Deadline: End of Week 8
-* Assignment: [Assignmend #1 - Secure Card System](/assignments/Assignment%20#1%20-%20Secure%20Card%20System.pdf) 
+* Assignment: [Assignment #1 - Secure Card System](/assignments/Assignment%20#1%20-%20Secure%20Card%20System.pdf) 
 
 ### Assignment #2: Embedded Ad Screen (Introduced Week 5)
 Create the application logic for a company Ad Screen in C++ and finish the LCD driver initialization for an hd44780-based display (using the provided template + Wokwi sketch).
 
 * Deadline: End of Week 8
-* Assignment: [Assignmend #2 - Embedded Ad Screen](/assignments/Assignment%20#2%20-%20Embedded.pdf)
+* Assignment: [Assignment #2 - Embedded Ad Screen](/assignments/Assignment%20#2%20-%20Embedded.pdf)
 
 ---
 
