@@ -7,6 +7,12 @@ Next, we’ll explore abstract classes and interfaces — essential tools for de
 
 Finally, we’ll bring these concepts together with polymorphism. You’ll learn how to use base class pointers and references to work with different types through a single, unified interface. This enables you to write more generic, elegant, and powerful code — from logging systems to game dialogue and transport calculators.
 
+### Introduction of Assignment #1: Secure Card System
+Build a C++ console-based access control system for a government building with full user/admin functionality, data persistence, validation, and logging.
+
+* Deadline: End of Week 8
+* Assignment: [Assignmend #1 - Secure Card System](/assignments/Assignment%20#1%20-%20Secure%20Card%20System.pdf) 
+
 ## Materials
 All materials for this lesson in order:
 * YouTube Playlist: Inheritance, Polymorphism and Virtual Functions: [Hank Stalica: Inheritance, Polymorphism and Virtual Functions](https://www.youtube.com/playlist?list=PLaatXkJEXKyKlx6H44MbV2d63AmudD5sd)

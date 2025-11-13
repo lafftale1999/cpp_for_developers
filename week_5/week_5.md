@@ -7,6 +7,12 @@ You’ll briefly learn about different types of operating systems used in embedd
 
 Finally, we’ll practice bit manipulation and write simple embedded programs for the AVR ATmega328p, giving you a first hands-on experience with low-level hardware control.
 
+### Introduction of Assignment #2: Embedded Ad Screen
+Create the application logic for a company Ad Screen in C++ and finish the LCD driver initialization for an hd44780-based display (using the provided template + Wokwi sketch).
+
+* Deadline: End of Week 8
+* Assignment: [Assignmend #2 - Embedded Ad Screen](/assignments/Assignment%20#2%20-%20Embedded.pdf)
+
 # Materials
 All materials for this lesson in order:
 * Video - Introduction to Embedded C++: [C++ Embedded](https://www.youtube.com/watch?v=60EyJhIDnE0)
