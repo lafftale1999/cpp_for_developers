@@ -14,9 +14,9 @@ int main(void) {
     // To avoid crashing the program when errors occur, we can try to handle them
     // by creating try-catch statements
 
-    try { // start with the try body - this is where you put the code that might throw an exception
+    try { // body - sensetive code goes here
         std::cout << values.at(4) << std::endl;
-    } catch (const std::exception& e) { // we "catch" the exception as a const reference and assign it the name 'e'.
+    } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
     }
 
