@@ -78,7 +78,10 @@
         "span": "cpp",
         "stack": "cpp",
         "unordered_set": "cpp",
-        "coroutine": "cpp"
+        "coroutine": "cpp",
+        "condition_variable": "cpp",
+        "shared_mutex": "cpp",
+        "semaphore": "cpp"
     },
     "cmake.sourceDirectory": "C:/Users/prett/Desktop/YH_akademin/project_templates/cmake_project_template"
 }

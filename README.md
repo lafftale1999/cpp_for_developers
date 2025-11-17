@@ -200,7 +200,16 @@ Link to week six: [Week 6 curriculum](/week_6/week_6.md)
 * Build on STL knowledge with modern C++20 features that simplify and streamline code
 
 ## Week 7
+Link to week seven: [week 7 curriculum](./week_7/week_7.md)
+
 ### Lesson 13: Threads
+* Understand multithreaded software using C++
+* Get to know the challenges facing multithreading
+* Learn about synchronization tools:
+    * Mutexes
+    * Atomic variables
+    * Condition variables
+    * Semaphores
 
 ## Week 8
 This final week is dedicated to completing and polishing the two major assignments from the course. Your focus should be on finalizing all functionality, ensuring every requirement is met and improving structure and clarity. This is your chance to bring together everything you’ve learned and deliver two fully working, well-designed C++ applications. 

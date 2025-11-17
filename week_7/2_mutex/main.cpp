@@ -13,7 +13,7 @@ public:
     double salary;
 
     Employee(int _id, std::string _name, double _salary)
-    : id(_id), name(_name), salary(_salary) {
+    : id(_id), name(std::move(_name)), salary(_salary) {
         if (id < 0 || name.empty() || salary < 0) {
             throw std::invalid_argument("Failed to create new employee");
         }
@@ -21,30 +21,45 @@ public:
 };
 
 class Employees {
-public:
-    std::vector<Employee> employees;
-    // Every employees object will have a mutex (a lock and key)
-    std::mutex mtx;
+std::vector<Employee> employees;
 
-    // Simple move constructor
+// Every instance of the Employees Class will have a mutex (a lock and key)
+std::mutex mtx;
+
+public:
+    
+    /*
+    We use this line in every method that manipulates or read the objects attributes:
+    std::lock_guard<std::mutex> lock(mtx);
+     
+    This will:
+    1. Wait until it acquires the key.
+    2. Lock the mutex
+    3. Release the lock when going out of scope. (RAII)
+    */
+
     void addEmployee(Employee&& e) {
+        std::lock_guard<std::mutex> lock(mtx);
         employees.emplace_back(std::move(e));
     }
 
-    // Our data manipulation method which can cause race conditions.
-    void updateSalary(int id, double amount) {
-        // Here we acquire the lock. std::lock_guard follows RAII
-        // which means we don't need to worry about scope.
+    bool updateSalary(int id, double amount) {
         std::lock_guard<std::mutex> lock(mtx);
         
         auto it = std::ranges::find_if(employees, [&id](const auto& e){
             return e.id == id;
         });
 
-        it->salary += amount;
+        if (it != employees.end()) {
+            it->salary += amount;
+            return true;
+        }
+        
+        return false;
     }
 
     void paySalary() {
+        std::lock_guard<std::mutex> lock(mtx);
         for (const auto& e : employees) {
             std::cout << e.name << " was paid: " << e.salary << " SEK!\n";
         }
@@ -78,15 +93,24 @@ int main(void) {
 
     int user_input = 0;
 
+    std::thread updateThread;
+    std::thread payThread;
+    std::thread addEmployeeThread;
+
     // 0 = update salary
     // 1 = pay salary
-    // 2 = change name
+    // 2 = add employee
     if (user_input == 0) {
-        std::thread update(&Employees::updateSalary, &company, 4, 3400);
-        update.join();
+        updateThread = std::thread(&Employees::updateSalary, &company, 4, 3400);
     } else if (user_input == 1) {
-        std::thread pay(&Employees::paySalary, &company, )
+        payThread = std::thread(&Employees::paySalary, &company);
+    } else if (user_input == 2) {
+        addEmployeeThread = std::thread(&Employees::addEmployee, &company, Employee(21, "Carl", 23700));
     }
+
+    if (updateThread.joinable()) updateThread.join();
+    if (payThread.joinable()) payThread.join();
+    if (addEmployeeThread.joinable()) addEmployeeThread.join();
 
     return 0;
 }
